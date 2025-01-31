@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philip Super Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/3.png">
+</head>
+
+<body>
+    <div class="scene">
+        <div class="sky">
+            <div class="sun"></div>
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+        </div>
+        <div class="ground">
+            <div class="grass">
+                <script>
+                    const grassContainer = document.querySelector('.grass');
+                    for (let i = 0; i < 100; i++) {
+                        let blade = document.createElement('div');
+                        blade.classList.add('blade');
+                        blade.style.left = `${Math.random() * 100}%`; // Random position
+                        blade.style.setProperty('--blade-height', Math.random()); // Random height
+                        grassContainer.appendChild(blade);
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="container">
+            <div class="blackboard">
+                <div class="boardHeader">
+                    <div id="response"></div>
+                    <p id="scoreDisplay" style="display: none;"></p>
+                </div>
+                <div class="boardBody">
+                    <div class="quizContainer" id="quizContainer">
+                        <h2>Welcome to Simple <span class="gold">Interactive</span> Quiz</h2>
+                        <button class="btn-start" id="startBtn">Start</button>
+                    </div>
+                </div>
+                <div class="boardFooter">
+                </div>
+            </div>
+            <div class="character">
+                <img src="images/welcome.png" id="responseImg" alt="">
+            </div>
+            <div id="homeModal" class="boardModal">
+                <p>Are you sure you want to go back home? Your progress will be lost.</p>
+                <button class="btn-home" id="cancelBtn">Cancel</button>
+                <button class="btn-confirm" id="confirmHomeBtn">Yes, Go Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
